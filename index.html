@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ember & Brew | Artisan Cafe</title>
+    <meta name="description" content="Welcome to Ember & Brew, an artisan cafe where every cup tells a story.">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <header class="app-header">
+        <div class="logo-container">
+            <div class="logo-icon glow-effect">
+                <i class="ph-fill ph-coffee"></i>
+            </div>
+            <div class="logo-text">
+                <h1>Ember & Brew</h1>
+                <p>ARTISAN CAFÉ</p>
+            </div>
+        </div>
+        <button class="cart-btn hover-pop" aria-label="View cart">
+            <i class="ph ph-shopping-bag"></i>
+            <span class="cart-badge pulse-anim">0</span>
+        </button>
+    </header>
+
+    <nav class="categories-nav sticky" id="categoriesNav">
+        <!-- populated by JS -->
+    </nav>
+
+    <main class="app-main">
+        <section class="hero cinematic-hero">
+            <video class="hero-bg-video" autoplay loop muted playsinline>
+                <source src="assets videos/coverture .mp4" type="video/mp4">
+            </video>
+            <div class="hero-bg-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-badge slide-up">
+                    <span class="pulse-dot"></span> Artisan Experience
+                </div>
+                <h2 class="slide-up delay-1">Ember & <span class="gradient-text">Brew</span></h2>
+                <p class="slide-up delay-2">Where every cup tells a story and every bite is a<br>moment of joy</p>
+                <div class="hero-actions slide-up delay-3">
+                    <button class="primary-btn hover-pop" onclick="document.getElementById('categoriesNav').scrollIntoView({behavior: 'smooth', block: 'start'})">Explore Menu <i class="ph ph-arrow-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator slide-up delay-4">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <span>Scroll down</span>
+            </div>
+        </section>
+
+        <div id="menu-container">
+            <!-- Sections populated by JS -->
+        </div>
+    </main>
+    
+    <nav class="bottom-nav">
+        <div class="bottom-nav-content">
+             <div class="nav-logo glow-effect">N</div>
+             <div class="bottom-categories" id="bottomCategories"></div>
+             <button class="scroll-top hover-pop" id="scrollTopBtn"><i class="ph ph-caret-up"></i></button>
+        </div>
+    </nav>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay hidden" id="itemModalOverlay">
+        <div class="modal-content" id="itemModalContent">
+            <!-- Populated dynamically -->
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
