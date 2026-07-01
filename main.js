@@ -218,10 +218,13 @@ function getSafeVideoUrl(videoPath) {
     return videoPath ? encodeURI(videoPath) : '';
 }
 
-function getVideoMarkup(item, className, placeholderUrl) {
+function getVideoMarkup(item, className, placeholderUrl, useDataSrc = true) {
     if (!item.video) {
         return `<img src="${item.image}" alt="${item.name}" class="${className}" onerror="this.src='${placeholderUrl}'">`;
     }
+
+    const videoSrc = getSafeVideoUrl(item.video);
+    const srcAttribute = useDataSrc ? `data-src="${videoSrc}"` : `src="${videoSrc}"`;
 
     return `
         <video
@@ -232,7 +235,7 @@ function getVideoMarkup(item, className, placeholderUrl) {
             playsinline
             preload="metadata"
             poster="${item.image || ''}"
-            data-src="${getSafeVideoUrl(item.video)}"
+            ${srcAttribute}
         ></video>
     `;
 }
@@ -397,7 +400,7 @@ function openModal(itemId) {
         </div>
         <div class="modal-hero">
             ${item.video ? 
-                getVideoMarkup(item, 'modal-hero-video', item.image)
+                getVideoMarkup(item, 'modal-hero-video', item.image, false)
                 : `<img src="${item.image}" class="modal-hero-img" alt="${item.name}">`
             }
             <div class="modal-hero-gradient"></div>
