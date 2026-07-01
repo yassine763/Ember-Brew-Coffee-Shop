@@ -214,11 +214,62 @@ menuData.forEach(section => {
     });
 });
 
+function getSafeVideoUrl(videoPath) {
+    return videoPath ? encodeURI(videoPath) : '';
+}
+
+function getVideoMarkup(item, className, placeholderUrl) {
+    if (!item.video) {
+        return `<img src="${item.image}" alt="${item.name}" class="${className}" onerror="this.src='${placeholderUrl}'">`;
+    }
+
+    return `
+        <video
+            class="${className}"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            poster="${item.image || ''}"
+            data-src="${getSafeVideoUrl(item.video)}"
+        ></video>
+    `;
+}
+
+function setupLazyVideos() {
+    const videos = document.querySelectorAll('video[data-src]');
+    if (!videos.length) return;
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const video = entry.target;
+                    video.src = video.dataset.src;
+                    video.load();
+                    video.play().catch(() => {});
+                    obs.unobserve(video);
+                }
+            });
+        }, { rootMargin: '150px 0px' });
+
+        videos.forEach(video => observer.observe(video));
+    } else {
+        videos.forEach(video => {
+            video.src = video.dataset.src;
+            video.load();
+            video.play().catch(() => {});
+        });
+    }
+}
+
 // Initialize UI
 document.addEventListener('DOMContentLoaded', () => {
     renderTopNav();
     renderSections();
     renderBottomNav();
+    setupLazyVideos();
     
     // Smooth scroll for nav links
     setupScrollSpy();
@@ -267,7 +318,7 @@ function renderSections() {
                 return `
                 <div class="card-vertical cinematic-card" onclick="openModal('${item.id}')">
                     <div class="card-img-container">
-                        ${item.video ? `<video src="${item.video}" class="card-img" autoplay loop muted playsinline></video>` : `<img src="${item.image}" alt="${item.name}" class="card-img" onerror="this.src='https://via.placeholder.com/300x200?text=Image'">`}
+                        ${getVideoMarkup(item, 'card-img', 'https://via.placeholder.com/300x200?text=Image')}
                         <div class="img-gradient-overlay"></div>
                         ${item.tag ? `<div class="card-tag ${item.tagClass}">${item.tag}</div>` : ''}
                         <div class="card-price-badge">${item.price}</div>
@@ -288,7 +339,7 @@ function renderSections() {
                 return `
                 <div class="card-horizontal cinematic-card" onclick="openModal('${item.id}')">
                     <div class="card-hz-img-wrapper">
-                        ${item.video ? `<video src="${item.video}" class="card-hz-img" autoplay loop muted playsinline></video>` : `<img src="${item.image}" alt="${item.name}" class="card-hz-img" onerror="this.src='https://via.placeholder.com/150?text=Image'">`}
+                        ${getVideoMarkup(item, 'card-hz-img', 'https://via.placeholder.com/150?text=Image')}
                     </div>
                     ${item.tag && isVertical == false ? `<div class="card-hz-tag ${item.tagClass}">${item.tag}</div>` : ''}
                     <div class="card-hz-content">
@@ -346,7 +397,7 @@ function openModal(itemId) {
         </div>
         <div class="modal-hero">
             ${item.video ? 
-                `<video src="${item.video}" class="modal-hero-video" autoplay loop muted playsinline></video>` 
+                getVideoMarkup(item, 'modal-hero-video', item.image)
                 : `<img src="${item.image}" class="modal-hero-img" alt="${item.name}">`
             }
             <div class="modal-hero-gradient"></div>
