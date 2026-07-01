@@ -18,7 +18,7 @@ const menuData = [
                 calories: '280 cal',
                 longDesc: 'A luxurious classic featuring our signature espresso poured over smooth steamed milk, perfectly balanced with a rich, buttery caramel drizzle that cascades down the glass.',
                 ingredients: ['Espresso', 'Steamed Milk', 'Caramel Syrup', 'Caramel Drizzle'],
-                video: 'assets videos/Caramel Macchiato.mp4'
+                video: 'assets/videos/CaramelMacchiato.mp4'
             },
             { 
                 id: 'item-2',
@@ -33,7 +33,7 @@ const menuData = [
                 calories: '180 cal',
                 longDesc: 'Sourced directly from Uji, Japan, our ceremonial grade matcha is traditionally whisked in a chawan to create a frothy, vibrant green brew, delicately folded into creamy oat milk.',
                 ingredients: ['Ceremonial Matcha', 'Oat Milk', 'Agave (Optional)', 'Hot Water'],
-                video: 'assets videos/Ceremonial Matcha Latte.mp4'
+                video: 'assets/videos/CeremonialMatchaLatte.mp4'
             },
             { 
                 id: 'item-3',
@@ -48,7 +48,7 @@ const menuData = [
                 calories: '420 cal',
                 longDesc: 'Thick cut artisan sourdough toasted to a golden crisp, generously smothered with our house-made white truffle cream, topped with a medley of sautéed wild mushrooms and fresh microgreens.',
                 ingredients: ['Sourdough', 'Truffle Cream', 'Shiitake', 'Cremini', 'Microgreens', 'Sea Salt'],
-                video: 'assets videos/Truffle Mushroom Toast.mp4'
+                video: 'assets/videos/TruffleMushroomToast.mp4'
             },
             { 
                 id: 'item-4',
@@ -63,7 +63,7 @@ const menuData = [
                 calories: '350 cal',
                 longDesc: 'Authentic French pain au chocolat, featuring shatteringly crisp, buttery layers that give way to a soft center filled with premium Valrhona dark chocolate batons.',
                 ingredients: ['French Butter', 'Flour', 'Dark Chocolate', 'Eggs', 'Yeast'],
-                video: 'assets videos/Chocolate Croissant.mp4'
+                video: 'assets/videos/ChocolateCroissant.mp4'
             },
             { 
                 id: 'item-5',
@@ -78,7 +78,7 @@ const menuData = [
                 calories: '380 cal',
                 longDesc: 'Perfectly ripe Hass avocados roughly mashed with lime juice and cilantro, piled high on toasted multigrain bread, and crowned with a perfectly runny poached egg.',
                 ingredients: ['Multigrain Bread', 'Avocado', 'Poached Egg', 'Chili Flakes', 'Lime', 'Cilantro'],
-                video: 'exemples of videos/salad.mp4'
+                video: 'assets/examples/salad.mp4'
             }
         ]
     },
@@ -98,7 +98,7 @@ const menuData = [
                 prepTime: '1 min', calories: '5 cal',
                 longDesc: 'A concentrated double shot of our signature house blend, pulled with precision to extract a rich crema, deep chocolate notes, and a bright berry finish.',
                 ingredients: ['House Blend Coffee Beans', 'Filtered Water'],
-                video: 'assets videos/expresso.mp4'
+                video: 'assets/videos/expresso.mp4'
             },
             { 
                 id: 'item-7',
@@ -110,7 +110,7 @@ const menuData = [
                 prepTime: '2 min', calories: '10 cal',
                 longDesc: 'A classic favorite. We pull a double shot of espresso and gently pour it over hot water, maintaining the crema while creating a smooth, highly drinkable cup.',
                 ingredients: ['Espresso', 'Hot Water'],
-                video: 'assets videos/amerciano.mp4'
+                video: 'assets/videos/amerciano.mp4'
             },
             { 
                 id: 'item-8',
@@ -122,7 +122,7 @@ const menuData = [
                 prepTime: '3 min', calories: '120 cal',
                 longDesc: 'The perfect balance of coffee and milk. A rich espresso base topped with deeply textured microfoam that creates a velvety mouthfeel from the first sip to the last.',
                 ingredients: ['Espresso', 'Whole Milk (or alt)'],
-                video: 'assets videos/capuccino.mp4'
+                video: 'assets/videos/capuccino.mp4'
             },
             { 
                 id: 'item-9',
@@ -134,7 +134,7 @@ const menuData = [
                 prepTime: '3 min', calories: '180 cal',
                 longDesc: 'For those who prefer a milk-forward drink. Our latte features a double shot of espresso enveloped in beautifully steamed milk with just a thin layer of foam on top.',
                 ingredients: ['Espresso', 'Steamed Milk'],
-                video: 'assets videos/capuccino.mp4'
+                video: 'assets/videos/capuccino.mp4'
             }
         ]
     },
@@ -156,7 +156,7 @@ const menuData = [
                 prepTime: '4 min', calories: '210 cal',
                 longDesc: 'A delicate and aromatic experience. House-made lavender syrup infused with raw wildflower honey, paired with espresso and creamy oat milk.',
                 ingredients: ['Espresso', 'Oat Milk', 'Lavender Syrup', 'Raw Honey'],
-                video: 'assets videos/Lavender Honey Latte.mp4'
+                video: 'assets/videos/LavenderHoneyLatte.mp4'
             },
             { 
                 id: 'item-11',
@@ -168,7 +168,7 @@ const menuData = [
                 prepTime: '4 min', calories: '190 cal',
                 longDesc: 'An exotic journey of flavors. Earthy espresso balanced with aromatic rose water and ground green cardamom, finished with a sprinkle of dried rose petals.',
                 ingredients: ['Espresso', 'Milk', 'Rose Water', 'Cardamom', 'Rose Petals'],
-                video: 'assets videos/Rose Cardamom Latte.mp4'
+                video: 'assets/videos/RoseCardamomLatte.mp4'
             }
         ]
     },
@@ -188,7 +188,7 @@ const menuData = [
                 prepTime: '2 min', calories: '320 cal',
                 longDesc: 'Madagascar vanilla bean custard, slow-baked to silky perfection and finished with a thin, crackling layer of caramelized sugar. Break through the crust to reveal the creamy treasure beneath.',
                 ingredients: ['Vanilla Beans', 'Heavy Cream', 'Egg Yolks', 'Sugar'],
-                video: 'assets videos/Crème Brûlée.mp4'
+                video: 'assets/videos/CremeBrulee.mp4'
             },
             { 
                 id: 'item-13',
@@ -200,7 +200,7 @@ const menuData = [
                 prepTime: '5 min', calories: '550 cal',
                 longDesc: 'A decadent individual chocolate cake that, when broken, reveals a flowing center of rich, warm Valrhona dark chocolate. Served with a dusting of powdered sugar.',
                 ingredients: ['Dark Chocolate', 'Butter', 'Eggs', 'Sugar', 'Flour'],
-                video: 'assets videos/Chocolate Lava Cake.mp4'
+                video: 'assets/videos/ChocolateLavaCake.mp4'
             }
         ]
     }
